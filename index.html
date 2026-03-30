@@ -128,18 +128,18 @@
             }
         }
 
-    /* 다양한 크기와 속도의 꽃들 (N번째 꽃마다 설정) */
-    /* 만드신 이미지의 원래 비율에 맞춰 width, height 값을 조절하세요 */
-    .petal:nth-child(1) { width: 25px; height: 25px; left: 10%; animation-duration: 10s; animation-delay: 0s; }
-    .petal:nth-child(2) { width: 20px; height: 20px; left: 20%; animation-duration: 12s; animation-delay: 2s; opacity: 0.7; } /* 조금 더 투명하게 */
-    .petal:nth-child(3) { width: 30px; height: 30px; left: 35%; animation-duration: 8s; animation-delay: 4s; }
-    .petal:nth-child(4) { width: 22px; height: 22px; left: 50%; animation-duration: 15s; animation-delay: 1s; opacity: 0.8; }
-    .petal:nth-child(5) { width: 28px; height: 28px; left: 65%; animation-duration: 9s; animation-delay: 3s; }
-    .petal:nth-child(6) { width: 20px; height: 20px; left: 80%; animation-duration: 13s; animation-delay: 5s; opacity: 0.7; }
-    .petal:nth-child(7) { width: 26px; height: 26px; left: 90%; animation-duration: 11s; animation-delay: 2s; }
-    .petal:nth-child(8) { width: 30px; height: 30px; left: 25%; animation-duration: 10s; animation-delay: 6s; }
-    .petal:nth-child(9) { width: 24px; height: 24px; left: 45%; animation-duration: 14s; animation-delay: 3s; opacity: 0.8; }
-    .petal:nth-child(10) { width: 28px; height: 28px; left: 75%; animation-duration: 9s; animation-delay: 7s; }
+    /* 다양한 크기, 위치, 속도의 꽃들 설정 */
+    /* top 값을 0% ~ 100% 사이로 골고루 배분하여 처음에 뭉치지 않게 합니다. */
+    .petal:nth-child(1) { width: 25px; height: 25px; left: 10%; top: 5%; animation-duration: 10s; animation-delay: -2s; }
+    .petal:nth-child(2) { width: 20px; height: 20px; left: 20%; top: 20%; animation-duration: 12s; animation-delay: -5s; opacity: 0.7; }
+    .petal:nth-child(3) { width: 30px; height: 30px; left: 35%; top: 40%; animation-duration: 8s; animation-delay: -1s; }
+    .petal:nth-child(4) { width: 22px; height: 22px; left: 50%; top: 60%; animation-duration: 15s; animation-delay: -3s; opacity: 0.8; }
+    .petal:nth-child(5) { width: 28px; height: 28px; left: 65%; top: 80%; animation-duration: 9s; animation-delay: -4s; }
+    .petal:nth-child(6) { width: 20px; height: 20px; left: 80%; top: 15%; animation-duration: 13s; animation-delay: -6s; opacity: 0.7; }
+    .petal:nth-child(7) { width: 26px; height: 26px; left: 95%; top: 35%; animation-duration: 11s; animation-delay: -2s; }
+    .petal:nth-child(8) { width: 30px; height: 30px; left: 25%; top: 55%; animation-duration: 10s; animation-delay: -7s; }
+    .petal:nth-child(9) { width: 24px; height: 24px; left: 45%; top: 75%; animation-duration: 14s; animation-delay: -4s; opacity: 0.8; }
+    .petal:nth-child(10) { width: 28px; height: 28px; left: 75%; top: 90%; animation-duration: 9s; animation-delay: -2s; }
         
         /* 모바일 최적화 */
         @media (max-width: 768px) {
