@@ -108,4 +108,67 @@
             <img src="./003.jpg" />
             
             <div class="navigation-button-container">
-                <a href="
+                <a href="https://map.kakao.com/?map_type=TYPE_MAP&target=car&rt=,,310239,917572&rt2=%EC%8A%A4%EC%99%84%EB%A0%88%EC%8A%A4%ED%86%A0%EB%9E%91&rtIds=,8082599" 
+                   target="_blank" class="navigation-button">
+                    📍 카카오 길찾기
+                </a>
+            </div>
+            
+            <img src="./004.jpg" />
+
+            <button class="floating-button" onclick="showPopup()">마음 전하실 곳</button>
+        </div>
+    </div>
+
+    <div class="popup-overlay" id="popupOverlay" onclick="closePopup(event)">
+        <div class="popup">
+            <div class="section-title">신랑측</div>
+            <div class="account-item">
+                <div class="account-details">
+                    <div class="account-name">오석현</div>
+                    <div class="account-number">국민 467101-04-106702</div>
+                </div>
+                <button class="copy-btn" onclick="copyAccountNumber('국민 467101-04-106702')">복사</button>
+            </div>
+            <div class="account-item">
+                <div class="account-details">
+                    <div class="account-name">이순옥</div>
+                    <div class="account-number">기업 010-5409-5889</div>
+                </div>
+                <button class="copy-btn" onclick="copyAccountNumber('기업 010-5409-5889')">복사</button>
+            </div>
+
+            <div class="section-title" style="margin-top:20px;">신부측</div>
+            <div class="account-item">
+                <div class="account-details">
+                    <div class="account-name">김용록</div>
+                    <div class="account-number">농협 477172-51-019329</div>
+                </div>
+                <button class="copy-btn" onclick="copyAccountNumber('농협 477172-51-019329')">복사</button>
+            </div>
+            <div class="account-item">
+                <div class="account-details">
+                    <div class="account-name">지숙경</div>
+                    <div class="account-number">하나 665-121742-00108</div>
+                </div>
+                <button class="copy-btn" onclick="copyAccountNumber('하나 665-121742-00108')">복사</button>
+            </div>
+            <button class="close-button" onclick="closePopup()">닫기</button>
+        </div>
+    </div>
+
+    <div class="copy-success" id="copySuccess">계좌번호가 복사되었습니다</div>
+
+    <script>
+        function showPopup() { document.getElementById('popupOverlay').classList.add('show'); }
+        function closePopup(event) { if (event && event.target !== event.currentTarget) return; document.getElementById('popupOverlay').classList.remove('show'); }
+        function copyAccountNumber(text) {
+            navigator.clipboard.writeText(text).then(() => {
+                const msg = document.getElementById('copySuccess');
+                msg.classList.add('show');
+                setTimeout(() => msg.classList.remove('show'), 2000);
+            });
+        }
+    </script>
+</body>
+</html>
