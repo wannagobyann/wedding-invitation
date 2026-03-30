@@ -102,35 +102,35 @@
         }
 
         /* 플로팅 버튼 */
-        .floating-button {
-            position: fixed;
-            bottom: 35px;
-            left: 50%;
-            transform: translateX(-50%);
-            background: linear-gradient(135deg, #4CAF50 0%, #2E8B57 100%);
-            color: white;
-            border: none;
-            padding: 18px 30px;
-            border-radius: 50px;
-            font-size: 18px;
-            font-weight: 600;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
-            cursor: pointer;
-            transition: all 0.3s ease;
-            z-index: 1000;
-            white-space: nowrap;
-            min-width: 200px;
-            text-align: center;
-        }
+/* 이름은 유지하되 스타일을 '하단 고정형'으로 변경 */
+.floating-button {
+    display: block;        /* 화면 중앙에 배치하기 위해 블록 요소로 변경 */
+    margin: 40px auto 60px; /* 위아래 여백을 줘서 이미지와 간격을 띄움 (상 40px, 하 60px) */
+    position: relative;    /* 고정 위치 해제 */
+    left: 0;               /* 기존 중앙 정렬 속성 초기화 */
+    transform: none;       /* 기존 중앙 정렬 속성 초기화 */
+    
+    background: linear-gradient(135deg, #4CAF50 0%, #2E8B57 100%);
+    color: white;
+    border: none;
+    padding: 18px 40px;
+    border-radius: 50px;
+    font-size: 18px;
+    font-weight: 600;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* 그림자는 조금 더 은은하게 */
+    cursor: pointer;
+    transition: all 0.3s ease;
+    z-index: 10;
+    white-space: nowrap;
+    min-width: 240px;      /* 하단 고정형은 조금 더 넓은 게 안정적입니다 */
+    text-align: center;
+}
 
-        .floating-button:hover {
-            transform: translateX(-50%) translateY(-2px);
-            box-shadow: 0 6px 25px rgba(0, 0, 0, 0.2);
-        }
-
-        .floating-button:active {
-            transform: translateX(-50%) translateY(0px);
-        }
+/* 호버 효과도 살짝 수정 (좌우 이동 제외) */
+.floating-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+}
 
         /* 팝업 오버레이 */
         .popup-overlay {
