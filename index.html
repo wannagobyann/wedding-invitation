@@ -7,31 +7,30 @@
 
     <title>웅전 ♥ 미영 결혼합니다</title>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
         
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Malgun Gothic', '맑은 고딕', sans-serif;
-            background-color: rgb(238, 238, 238);
+            /* PC 배경색을 조금 더 밝은 회색으로 변경하여 대비를 줌 */
+            background-color: #f4f4f4; 
             min-height: 100vh;
+            display: flex;
+            justify-content: center;
         }
 
         .container {
             width: 100%;
-            max-width: 640px;
+            max-width: 640px; /* PC에서도 이 폭을 유지 */
             background-color: #efe8d8;
-            min-height: 100vh;
             position: relative;
-            margin: 0 auto;
+            /* PC에서 초대장 느낌이 나도록 그림자 추가 */
+            box-shadow: 0 0 20px rgba(0,0,0,0.05);
         }
 
         .content {
             width: 100%;
-            /* 버튼 아래 여백을 주어 페이지 끝이 너무 답답하지 않게 조절 */
-            padding-bottom: 40px; 
+            /* 하단 전체 여백을 60px -> 20px로 대폭 축소 */
+            padding-bottom: 20px; 
         }
 
         .content img {
@@ -44,7 +43,7 @@
         .navigation-button-container {
             display: flex;
             justify-content: center;
-            padding: 25px 20px;
+            padding: 20px;
             background-color: #efe8d8;
         }
 
@@ -53,49 +52,60 @@
             background: linear-gradient(135deg, #FEE500 0%, #FFCD00 100%);
             color: #3C1E1E;
             text-decoration: none;
-            padding: 16px 32px;
+            padding: 15px 30px;
             border-radius: 30px;
-            font-size: 17px;
+            font-size: 16px;
             font-weight: 700;
-            box-shadow: 0 4px 15px rgba(255, 205, 0, 0.3);
-            transition: all 0.3s ease;
+            box-shadow: 0 4px 10px rgba(255, 205, 0, 0.2);
             border: 2px solid #FFCD00;
             text-align: center;
-            min-width: 180px;
         }
 
-        /* 마음 전하실 곳 버튼 (완전 고정형) */
+        /* 마음 전하실 곳 버튼 (여백 조정) */
         .floating-button {
             display: block;
-            margin: 40px auto 0; /* 이미지와의 상단 간격 40px */
-            position: relative;  /* 화면에 고정되지 않고 흐름을 따름 */
-            
+            /* 상단 여백 30px, 하단 여백 10px로 조정 */
+            margin: 30px auto 10px; 
+            position: relative;
             background: linear-gradient(135deg, #4CAF50 0%, #2E8B57 100%);
             color: white;
             border: none;
-            padding: 18px 40px;
+            padding: 16px 40px;
             border-radius: 50px;
             font-size: 18px;
             font-weight: 600;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
             cursor: pointer;
-            transition: all 0.3s ease;
-            z-index: 10;
-            white-space: nowrap;
-            min-width: 240px;
-            text-align: center;
+            width: 80%; /* 모바일/PC 모두 적당한 너비 유지 */
+            max-width: 300px;
         }
 
-        .floating-button:hover {
-            transform: scale(1.02);
-            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
-        }
-
-        /* 팝업 스타일 생략 (기존과 동일) */
+        /* 팝업 및 기타 스타일 (기존 유지) */
         .popup-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.5); display: none; justify-content: center; align-items: center; z-index: 2000; backdrop-filter: blur(5px); }
         .popup-overlay.show { display: flex; }
-        .popup { background: white; border-radius: 20px; padding: 30px; width: 90%; max-width: 400px; max-height: 80vh; overflow-y: auto; box-shadow: 0 10px 50px rgba(0, 0, 0, 0.3); transform: scale(0.9); transition: transform 0.3s ease; }
-        .popup-overlay.show .popup { transform: scale(1); }
-        .popup-header { text-align: center; margin-bottom: 25px; }
-        .popup-header h3 { font-size: 20px; color: #333; margin-bottom: 8px; }
-        .popup-header p { color:
+        .popup { background: white; border-radius: 20px; padding: 30px; width: 90%; max-width: 400px; max-height: 80vh; overflow-y: auto; }
+        .section-title { font-size: 16px; font-weight: 700; color: #333; text-align: center; margin-bottom: 15px; padding: 8px 0; background: #f8f9fa; border-radius: 8px; border: 1px solid #dee2e6; }
+        .account-item { display: flex; justify-content: space-between; align-items: center; background: #f8f9fa; border-radius: 12px; padding: 12px; margin-bottom: 8px; border: 1px solid #e9ecef; }
+        .account-name { font-size: 15px; font-weight: 600; }
+        .account-number { font-size: 13px; color: #666; }
+        .copy-btn { background: #4CAF50; color: white; border: none; padding: 6px 12px; border-radius: 15px; font-size: 11px; cursor: pointer; }
+        .close-button { width: 100%; padding: 12px; border: none; border-radius: 10px; background: #eee; color: #666; cursor: pointer; margin-top: 10px; }
+        
+        .copy-success { position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); background: #28a745; color: white; padding: 12px 24px; border-radius: 25px; z-index: 3000; opacity: 0; transition: opacity 0.3s; pointer-events: none; }
+        .copy-success.show { opacity: 1; }
+
+        /* 모바일 최적화 */
+        @media (max-width: 768px) {
+            body { background-color: #efe8d8; } /* 모바일은 배경색 통일 */
+            .container { box-shadow: none; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="content">
+            <img src="./001.jpg" />
+            <img src="./002.jpg" />
+            <img src="./003.jpg" />
+            
+            <div class="navigation-button-container">
+                <a href="
