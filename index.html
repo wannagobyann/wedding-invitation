@@ -354,7 +354,19 @@
                 padding: 25px;
             }
         }
-
+            .bottom-gradient-wrapper {
+               position: fixed;
+               bottom: 0;
+               left: 50%;
+               transform: translateX(-50%);
+               width: 100%;
+               max-width: 640px; 
+               height: 120px;
+            /* 아래는 베이지색, 위로 갈수록 투명해지는 안개 효과 */
+               background: linear-gradient(to top, #efe8d8 50%, rgba(239, 232, 216, 0) 100%);
+               z-index: 999;
+               pointer-events: none;
+        }
         /* 데스크톱/태블릿 */
         @media (min-width: 769px) {
             body {
