@@ -92,13 +92,16 @@
         
         .copy-success { position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); background: #28a745; color: white; padding: 12px 24px; border-radius: 25px; z-index: 3000; opacity: 0; transition: opacity 0.3s; pointer-events: none; }
         .copy-success.show { opacity: 1; }
+        
         /* --- 꽃 날리는 효과 스타일 (이미지 버전) --- */
         .petal-container {
-         position: fixed;
-         top: 0; left: 0;
-        width: 100%; height: 100%;
-        pointer-events: none; /* 클릭 방해 금지 */
-        z-index: 10; /* 이미지들 위에 표시 (팝업보단 아래) */
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw; /* 가로 폭을 화면 전체로 고정 */
+        height: 100vh; /* 세로 높이를 화면 전체로 고정 */
+        pointer-events: none;
+        z-index: 9999; /* 다른 요소들보다 훨씬 높은 숫자로 수정 */
         overflow: hidden;
         }
 
@@ -115,31 +118,31 @@
         }
 
         /* 꽃이 떨어지는 애니메이션 정의 (기존과 동일) */
-    @keyframes fall {
-    0% {
+        @keyframes fall {
+        0% {
         top: -10%;
         transform: translateX(0) rotate(0deg);
         opacity: 0.9;
-    }
-    100% {
+            }
+        100% {
         top: 110%; /* 화면 아래까지 */
         transform: translateX(100px) rotate(360deg); /* 오른쪽으로 가면서 회전 */
         opacity: 0; /* 사라짐 */
             }
-        }
+                }
 
-    /* 다양한 크기, 위치, 속도의 꽃들 설정 */
-    /* top 값을 0% ~ 100% 사이로 골고루 배분하여 처음에 뭉치지 않게 합니다. */
-    .petal:nth-child(1) { width: 25px; height: 25px; left: 10%; top: 5%; animation-duration: 10s; animation-delay: -2s; }
-    .petal:nth-child(2) { width: 20px; height: 20px; left: 20%; top: 20%; animation-duration: 12s; animation-delay: -5s; opacity: 0.7; }
-    .petal:nth-child(3) { width: 30px; height: 30px; left: 35%; top: 40%; animation-duration: 8s; animation-delay: -1s; }
-    .petal:nth-child(4) { width: 22px; height: 22px; left: 50%; top: 60%; animation-duration: 15s; animation-delay: -3s; opacity: 0.8; }
-    .petal:nth-child(5) { width: 28px; height: 28px; left: 65%; top: 80%; animation-duration: 9s; animation-delay: -4s; }
-    .petal:nth-child(6) { width: 20px; height: 20px; left: 80%; top: 15%; animation-duration: 13s; animation-delay: -6s; opacity: 0.7; }
-    .petal:nth-child(7) { width: 26px; height: 26px; left: 95%; top: 35%; animation-duration: 11s; animation-delay: -2s; }
-    .petal:nth-child(8) { width: 30px; height: 30px; left: 25%; top: 55%; animation-duration: 10s; animation-delay: -7s; }
-    .petal:nth-child(9) { width: 24px; height: 24px; left: 45%; top: 75%; animation-duration: 14s; animation-delay: -4s; opacity: 0.8; }
-    .petal:nth-child(10) { width: 28px; height: 28px; left: 75%; top: 90%; animation-duration: 9s; animation-delay: -2s; }
+        /* 다양한 크기, 위치, 속도의 꽃들 설정 */
+        /* top 값을 0% ~ 100% 사이로 골고루 배분하여 처음에 뭉치지 않게 합니다. */
+        .petal:nth-child(1) { width: 25px; height: 25px; left: 10%; top: 5%; animation-duration: 10s; animation-delay: -2s; }
+        .petal:nth-child(2) { width: 20px; height: 20px; left: 20%; top: 20%; animation-duration: 12s; animation-delay: -5s; opacity: 0.7; }
+        .petal:nth-child(3) { width: 30px; height: 30px; left: 35%; top: 40%; animation-duration: 8s; animation-delay: -1s; }
+        .petal:nth-child(4) { width: 22px; height: 22px; left: 50%; top: 60%; animation-duration: 15s; animation-delay: -3s; opacity: 0.8; }
+        .petal:nth-child(5) { width: 28px; height: 28px; left: 65%; top: 80%; animation-duration: 9s; animation-delay: -4s; }
+        .petal:nth-child(6) { width: 20px; height: 20px; left: 80%; top: 15%; animation-duration: 13s; animation-delay: -6s; opacity: 0.7; }
+        .petal:nth-child(7) { width: 26px; height: 26px; left: 95%; top: 35%; animation-duration: 11s; animation-delay: -2s; }
+        .petal:nth-child(8) { width: 30px; height: 30px; left: 25%; top: 55%; animation-duration: 10s; animation-delay: -7s; }
+        .petal:nth-child(9) { width: 24px; height: 24px; left: 45%; top: 75%; animation-duration: 14s; animation-delay: -4s; opacity: 0.8; }
+        .petal:nth-child(10) { width: 28px; height: 28px; left: 75%; top: 90%; animation-duration: 9s; animation-delay: -2s; }
         
         /* 모바일 최적화 */
         @media (max-width: 768px) {
