@@ -51,13 +51,17 @@
             width: 100%;
             height: auto;
             display: block;
-        }
+            /* 이미지가 로딩되기 전에도 자리를 잡고 있게 함 */
+            min-height: 200px; 
+            background-color: #f4f4f4; /* 로딩 전 빈 공간 색상 */
+}
 
         /* 네비게이션 버튼 (카카오 길찾기) */
         .navigation-button-container {
         display: flex;
         justify-content: center;
         padding: 40px 20px;
+        min-height: 100px; /* 버튼이 들어갈 공간을 미리 확보 */
         }
 
         .navigation-button {
@@ -163,12 +167,15 @@
         /* 모바일에서도 회색 대신 배경 이미지의 분위기와 어울리는 색상으로 설정 */
         background-color: #f4f4f4; 
     }
-    .container { 
-        box-shadow: none; 
-        /* 모바일에서 배경 이미지가 잘려 보인다면 높이를 맞춰줍니다 */
-        min-height: 100vh; 
-    }
-}
+        .container {
+        /* 이미지가 뜨기 전 비슷한 색상을 미리 보여주어 깜빡임을 방지 */
+            background-color: #efe8d8; 
+            background-image: url('./background.jpg');
+            background-size: 100% auto;
+            background-repeat: repeat-y;
+            background-position: top center;
+         }
+}    
     </style>
 </head>
 <body>
