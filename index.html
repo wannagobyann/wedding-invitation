@@ -22,12 +22,22 @@
             width: 100%;
             max-width: 640px;
             position: relative;
-                /* 수정된 부분 */
+    
+        /* [수정 포인트] */
             background-image: url('./background.jpg');
-            background-size: contain;      /* 이미지 비율 유지 (폭에 맞춤) */
-            background-repeat: repeat-y;    /* 세로로 길어지면 이미지를 반복해서 채움 */
+    
+        /* 이미지가 가로 폭(100%)에 맞춰지도록 하고 세로는 비율대로(auto) 설정합니다. */
+            background-size: 100% auto; 
+    
+        /* 이미지가 세로로 긴 페이지 끝까지 반복되도록 설정합니다. */
+            background-repeat: repeat-y; 
+    
+        /* 시작 지점을 상단 중앙으로 고정합니다. */
             background-position: top center;
+    
+        /* 스크롤과 함께 배경도 움직이도록 설정 (이미지가 반복되므로 자연스럽습니다) */
             background-attachment: scroll; 
+    
             box-shadow: 0 0 20px rgba(0,0,0,0.05);
         }  
 
