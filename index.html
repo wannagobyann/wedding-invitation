@@ -19,17 +19,17 @@
         }
 
         .container {
-        width: 100%;
-        max-width: 640px;
-        position: relative;
-        /* 배경 이미지가 스크롤해도 찌그러지지 않고 전체를 채우도록 설정 */
-        background-image: url('./background.jpg');
-        background-size: cover;
-        background-position: center top; /* 상단 기준 정렬 */
-        background-repeat: no-repeat;
-        background-attachment: scroll; 
-        box-shadow: 0 0 20px rgba(0,0,0,0.05);
-        }    
+            width: 100%;
+            max-width: 640px;
+            position: relative;
+                /* 수정된 부분 */
+            background-image: url('./background.jpg');
+            background-size: contain;      /* 이미지 비율 유지 (폭에 맞춤) */
+            background-repeat: repeat-y;    /* 세로로 길어지면 이미지를 반복해서 채움 */
+            background-position: top center;
+            background-attachment: scroll; 
+            box-shadow: 0 0 20px rgba(0,0,0,0.05);
+        }  
 
         .content {
             width: 100%;
