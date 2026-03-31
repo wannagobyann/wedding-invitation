@@ -17,7 +17,10 @@
             display: flex;
             justify-content: center;
         }
-
+           @keyframes fadeInPage {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+            }
         .container {
             width: 100%;
             max-width: 640px;
@@ -37,8 +40,9 @@
     
         /* 스크롤과 함께 배경도 움직이도록 설정 (이미지가 반복되므로 자연스럽습니다) */
             background-attachment: scroll; 
-    
             box-shadow: 0 0 20px rgba(0,0,0,0.05);
+
+            animation: fadeInPage 1.2s ease-out;
         }  
 
         .content {
