@@ -21,30 +21,22 @@
             from { opacity: 0; transform: translateY(10px); }
             to { opacity: 1; transform: translateY(0); }
             }
-        .container {
-            width: 100%;
-            max-width: 640px;
-            position: relative;
-    
-        /* [수정 포인트] */
-            background-image: url('./background.jpg');
-    
-        /* 이미지가 가로 폭(100%)에 맞춰지도록 하고 세로는 비율대로(auto) 설정합니다. */
-            background-size: 100% auto; 
-    
-        /* 이미지가 세로로 긴 페이지 끝까지 반복되도록 설정합니다. */
-            background-repeat: repeat-y; 
-    
-        /* 시작 지점을 상단 중앙으로 고정합니다. */
-            background-position: top center;
-    
-        /* 스크롤과 함께 배경도 움직이도록 설정 (이미지가 반복되므로 자연스럽습니다) */
-            background-attachment: scroll; 
-            box-shadow: 0 0 20px rgba(0,0,0,0.05);
-
-            animation: fadeInPage 1.2s ease-out;
-        }  
-
+       
+        /* 기본 컨테이너 설정 */
+            .container {
+                width: 100%;
+                max-width: 640px;
+                position: relative;
+                background-color: #efe8d8; /* 이미지 로딩 전 배경색 (미리 깔아둠) */
+                background-image: url('./background.jpg');
+                background-size: 100% auto;
+                background-repeat: repeat-y;
+                background-position: top center;
+                background-attachment: scroll;
+                box-shadow: 0 0 20px rgba(0,0,0,0.05);
+                animation: fadeInPage 1.2s ease-out;
+                }
+            
         .content {
             width: 100%;
             /* 하단 전체 여백을 60px -> 20px로 대폭 축소 */
@@ -55,10 +47,11 @@
             width: 100%;
             height: auto;
             display: block;
-            /* 이미지가 로딩되기 전에도 자리를 잡고 있게 함 */
-            min-height: 200px; 
-            background-color: #f4f4f4; /* 로딩 전 빈 공간 색상 */
-}
+            min-height: 200px;
+            background-color: #f4f4f4;
+            /* 이미지 렌더링 최적화 */
+            content-visibility: auto; 
+            }
 
         /* 네비게이션 버튼 (카카오 길찾기) */
         .navigation-button-container {
